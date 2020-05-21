@@ -1,0 +1,9 @@
+<%= render partial: "shared/error_form", locals: {new_object: @scientist}%>
+
+<%= form_for(@scientist) do |f|%>
+    <%= f.label :name%>
+    <%= f.text_field :name%>
+    <%= f.label :field_of_study%>
+    <%= f.text_field :field_of_study%>
+    <%= f.submit%>
+<%end%>

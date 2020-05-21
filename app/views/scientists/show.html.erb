@@ -1,0 +1,20 @@
+<h1><%= @scientist.name%></h1> 
+<h2><%= @scientist.field_of_study%></h2>
+
+
+<% if @scientist.missions.empty?%>
+    <h3>This scientist has no planets associated.</h3>
+<% else %>
+    <ul>
+        <% @scientist.planets.each do |planet|%>
+            <li><%= link_to planet.name, planet_path(planet)%></li>
+        <% end %>
+    </ul>
+<% end %>
+
+<p><%= link_to "Edit this scientist", edit_scientist_path(@scientist)%></p>
+
+
+<%= form_tag scientist_path(@scientist), method: "delete" do%>
+    <%= submit_tag "Delete this Scientist"%>
+<% end %>
